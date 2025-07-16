@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LinkedIn Session ID Leak PoC</title>
+</head>
+<body>
+  <h1>Session Leak via Referer (LinkedIn)</h1>
+
+  <!-- Image loading from LinkedIn subdomain with session_id, CustomerId, eci -->
+  <img 
+    src="https://merchantpool1.linkedin.com/Images/Clear.PNG?ctx=jscb1.0&session_id=4b6035c4-8d81-4780-8887-fbd1af53e03b&CustomerId=fb6bbd47-fa7c-4264-b4e9-b25948407586&eci=eyJ1dmRyIjoiR29vZ2xlIEluYy4gKEludGVsKSIsInVyZHIiOiJBTkdMRSAoSW50ZWwsIEludGVsKFIpIEhEIEdyYXBoaWNzIDQwMCBEaXJlY3QzRDExIHZzXzVfMCBwc181XzApLCBvciBzaW1pbGFyIiwidmRyIjoiTW96aWxsYSIsInJkciI6IkFOR0xFIChJbnRlbCwgSW50ZWwoUikgSEQgR3JhcGhpY3MgNDAwIERpcmVjdDNEMTEgdnNfNV8wIHBzXzVfMCksIG9yIHNpbWlsYXIiLCJpZHVoIjoiNWQzOTUzNGViYTgzMWNiNjc4ODYwOTRhYmVlNjI5NzYifQ==" 
+    style="display:none;" 
+    alt="Tracking Pixel"
+  />
+
+  <p>This simulates a 3rd-party website (like hyperpure.in) loading LinkedIn content with sensitive info in the URL. If your server is set to log the `Referer`, it will capture the full LinkedIn session link.</p>
+</body>
+</html>
